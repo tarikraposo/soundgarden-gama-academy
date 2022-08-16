@@ -26,6 +26,10 @@ aside {
     border-color: #C2185B;
 }
 
+btn {
+    padding: 0.5rem 0.5rem;
+}
+
 main.login {
     width: 400px;
 }

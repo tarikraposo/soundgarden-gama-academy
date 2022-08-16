@@ -2,6 +2,7 @@ const SOUND_URL = 'https://xp41-soundgarden-api.herokuapp.com/events'
 
 const formCadastroEvento = document.getElementById('cadastro-evento')
 
+
 formCadastroEvento.addEventListener('submit', async (event) => {
     event.preventDefault()
     const inputNome = document.getElementById("nome")
@@ -41,11 +42,16 @@ formCadastroEvento.addEventListener('submit', async (event) => {
  })
 })
 
-const preencherEvento = (evento) => {
-    document.getElementById('id-evento').value = evento._id
-    document.getElementById('data-evento').value = evento.scheduled
-    document.getElementById('nome-evento').value = evento.name
-    document.getElementById('atracao-evento').value = evento.attractions
-}
+
+
+// const preencherEvento = (evento) => {
+//     document.getElementById('nome').value = evento.name
+//     document.getElementById('banner').value = evento.poster
+//     document.getElementById('atracoes').value = evento.attractions.join(', ')
+//     document.getElementById('data').value = returnDateFormat(evento.scheduled)
+//     document.getElementById('descricao').value = evento.description
+//     document.getElementById('lotacao').value = evento.number_tickets
+// }
+
 
 
