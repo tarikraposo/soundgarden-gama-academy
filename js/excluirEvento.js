@@ -6,8 +6,9 @@ const findID = () => {
     return id;
 }
 
-const exibirDetalhesEvento = async () => {
-    const dadosEvento =
+
+const deletarEvento = async () => {
+    const dadosEvento = 
         await fetch('https://xp41-soundgarden-api.herokuapp.com/events/' + findID(), {
             method: "GET",
             mode: "cors",
@@ -16,7 +17,6 @@ const exibirDetalhesEvento = async () => {
             }
         }).then((response) => response.json());
 
-    console.log(dadosEvento);
 
     const inputNome = document.getElementById("nome");
     const inputAtracoes = document.getElementById("atracoes");
@@ -26,11 +26,14 @@ const exibirDetalhesEvento = async () => {
     const inputBanner = document.getElementById("banner");
 
     inputNome.value = dadosEvento.name;
-    inputAtracoes.value = dadosEvento.attractions.join(', ');
+    inputAtracoes.value = dadosEvento.attractions;
     inputBanner.value = dadosEvento.poster;
     inputDescricao.value = dadosEvento.description;
     inputData.value = dadosEvento.scheduled;
     inputLotacao.value = dadosEvento.number_tickets;
+
+
+
 }
 
-exibirDetalhesEvento();
+deletarEvento();

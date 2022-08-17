@@ -12,6 +12,7 @@ function returnDateFormat(dateFormat) {
   return `${String(date.getDate()).padStart(2, '0')}/${String(date.getMonth() + 1).padStart(2, '0')}/${date.getFullYear()} ${String(date.getHours()).padStart(2, '0')}:${String(date.getMinutes()).padStart(2, '0')}`
 }
 
+
 async function getAllPosts() {
   const response = await fetch(SOUND_URL);
 
@@ -28,33 +29,42 @@ async function getAllPosts() {
     const tdData = document.createElement("td");
     const tdEvento = document.createElement("td");
     const tdAtracoes = document.createElement("td");
-    const linkReservas = document.createElement("a")
-    const linkEditar = document.createElement("a")
-    const linkExcluir = document.createElement("a")
+    const linkReservas = document.createElement("a");
+    const linkEditar = document.createElement("a");
+    const linkExcluir = document.createElement("a");
 
-    th.innerText = post._id;
+    for (let i = 0; i < data.length; i++){
+      th.innerText = i;
+    }
+    
     tdData.innerText = returnDateFormat(post.scheduled);
     tdEvento.innerText = post.name;
     tdAtracoes.innerText = post.attractions;
-    linkReservas.innerText = "ver reservas"
+    linkReservas.innerText = "ver reservas";
     linkReservas.setAttribute("href", "#");
-    linkEditar.innerText= "editar"
-    linkEditar.setAttribute ("href", "#");
-    linkExcluir.innerText="excluir"
-    linkExcluir.setAttribute("href", "#");
+    linkEditar.innerText= "editar";
+    linkEditar.setAttribute ("href", `editar-evento.html?id=${post._id}`);
+    linkExcluir.innerText="excluir";
+    linkExcluir.setAttribute("href", `excluir-evento.html?id=${post._id}`);
 
+    //`"https://xp41-soundgarden-api.herokuapp.com/events/:${post._id}"`
+  
     tr.appendChild(th);
     tr.appendChild(tdData);
     tr.appendChild(tdEvento);
-    tr.appendChild(tdAtracoes)
-    tr.appendChild(linkReservas)
-    tr.appendChild(linkEditar)
-    tr.appendChild(linkExcluir)
-
-    th.scope = "row"
-    linkReservas.className = "btn btn-dark"
-    linkEditar.className = "btn btn-secondary"
-    linkExcluir.className = "btn btn-danger"
+    tr.appendChild(tdAtracoes);
+    tr.appendChild(linkReservas);
+    tr.appendChild(linkEditar);
+    tr.appendChild(linkExcluir);
+    
+    linkEditar.style = "margin: 5px"
+    linkExcluir.style = "margin: 5px"
+    linkReservas.style = "margin: 5px"
+    th.scope = "row";
+    linkReservas.className = "btn btn-dark";
+    linkEditar.className = "btn btn-secondary";
+    linkExcluir.className = "btn btn-danger";
+    //linkExcluir.style = "margin: 5px";
     tableAdmin.appendChild(tr);
   });
 }
