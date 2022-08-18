@@ -41,17 +41,3 @@ formCadastroEvento.addEventListener('submit', async (event) => {
     console.log (responseOBJ)
  })
 })
-
-
-
-// const preencherEvento = (evento) => {
-//     document.getElementById('nome').value = evento.name
-//     document.getElementById('banner').value = evento.poster
-//     document.getElementById('atracoes').value = evento.attractions.join(', ')
-//     document.getElementById('data').value = returnDateFormat(evento.scheduled)
-//     document.getElementById('descricao').value = evento.description
-//     document.getElementById('lotacao').value = evento.number_tickets
-// }
-
-
-
