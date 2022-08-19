@@ -34,21 +34,19 @@ async function getAllPosts() {
     title2.innerText = post.attractions.join(",");
     body.innerText = post.description;
     link.innerText = "reservar ingresso";
-    link.setAttribute("href", "#");
+    link.setAttribute("href", `./cadastro-reserva.html?id=${post._id}`);
 
     article.appendChild(title1);
     article.appendChild(title2);
     article.appendChild(body);
-    article.appendChild(link)
+    article.appendChild(link);
 
-    indexEventos.className = "container d-flex justify-content-center align-items-center flex-wrap"
-    article.className = "evento card p-5 m-3"
-    link.className = "btn btn-primary"
+    indexEventos.className = "container d-flex justify-content-center align-items-center flex-wrap";
+    article.className = "evento card p-5 m-3";
+    link.className = "btn btn-primary";
 
     indexEventos.appendChild(article);
   });
 
 }
 getAllPosts();
-
-// Acessa a array e seleciona quais ítens quer carregar

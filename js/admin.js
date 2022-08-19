@@ -22,7 +22,7 @@ async function getAllPosts() {
 
   console.log(data);
 
-  data.map((post) => {
+  data.map((post, index) => {
 
     const tr = document.createElement("tr");
     const th = document.createElement("th");
@@ -33,10 +33,7 @@ async function getAllPosts() {
     const linkEditar = document.createElement("a");
     const linkExcluir = document.createElement("a");
 
-    for (let i = 0; i < data.length; i++){
-      th.innerText = i;
-    }
-    
+    th.innerText = index+1;
     tdData.innerText = returnDateFormat(post.scheduled);
     tdEvento.innerText = post.name;
     tdAtracoes.innerText = post.attractions;
@@ -56,10 +53,12 @@ async function getAllPosts() {
     tr.appendChild(linkReservas);
     tr.appendChild(linkEditar);
     tr.appendChild(linkExcluir);
-    
-    linkEditar.style = "margin: 5px"
-    linkExcluir.style = "margin: 5px"
-    linkReservas.style = "margin: 5px"
+
+    tdEvento.style = "margin-left: 10px"
+    tdAtracoes.style = "max-width: 700px !important"
+    linkEditar.style = "margin: 2px"
+    linkExcluir.style = "margin: 2px"
+    linkReservas.style = "margin: 2px"
     th.scope = "row";
     linkReservas.className = "btn btn-dark";
     linkEditar.className = "btn btn-secondary";
